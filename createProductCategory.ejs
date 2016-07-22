@@ -1,0 +1,68 @@
+﻿<% include layout %>
+
+<div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title"> <%=title %>  </h3>
+        </div>
+            
+        <div class="container">
+         <div class="panel-body">
+            <div class="container" 
+                 data-ng-app="CategoryModule"
+                 data-ng-controller="CategoryCtrl">
+
+
+                 <% include validationSummary %>    <!-- validation errors temp -->
+                 
+                 <% include message %>              <!-- send message temp -->
+
+                <form class="navbar-form navbar-left" role="search"
+                      method="POST" name="formCategory">
+
+                    <!-- product name -->
+                    <div class="row">               
+                        <div class="form-group">
+                            <label for="">Product Category Name</label>                             
+
+                            <input type="text" class="form-control" placeholder="Please Enter Product Category" name="Category" id="Category" data-ng-model="Category.categoryName"
+                                   style="width:100%" required />               
+                        </div>
+                    </div>
+                     &nbsp; &nbsp;
+
+                    <!-- product details -->
+                    <div class="row">                
+                        <div class="form-group">
+                            <label for="productDetails">Product Category Details</label>
+                            <textarea class="form-control" placeholder="Product Category Details" name="productDetails" id="productDetails" rows="5" cols="30" data-ng-model="Category.categoryDetails"
+                                   style="width:100%" required></textarea>
+
+                        </div>
+                    </div>
+
+                    <div>&nbsp;</div>
+
+                    <!-- submit button -->
+                    <div class="row">   
+                        <div class="form-group" style="padding-left:40%">
+                            <button type="button" class="btn btn-primary" data-ng-click="createCategory(Category)">Create Product Category</button>
+
+                        </div>
+                    
+                    </div>
+                </form>                       
+            </div>
+        </div>
+    </div>
+ </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../../javascripts/app/Category/CategoryModule.js"></script>
+    <script src="../../javascripts/app/Category/CategoryService.js"></script>
+    <script src="../../javascripts/app/Category/CategoryCtrl.js"></script>
+    <script src="../../javascripts/app/ValidationService.js"></script>
+
+
+   
+
+
